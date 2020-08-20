@@ -419,7 +419,7 @@ margin-top: 30px;
     "correo tel"
     "lasunto lasunto"
     "asunto asunto";*/
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     grid-gap: 20px;
 }
@@ -674,13 +674,11 @@ footer .redes i:hover{
         color: #32CFEF;
     }
 
-    .carcel{
-        margin: 30px;
-    }
-
     .formulario{
+        margin: 0;
+        padding: 0;
         display: grid;
-        grid-template: repeat(6, auto) / repeat(1,auto);
+        grid-template-columns: repeat(6, auto) / repeat(1,1fr);
         grid-template-areas: 
         "nombre" 
         "empresa"
@@ -688,7 +686,6 @@ footer .redes i:hover{
         "tel"
         "asunto"
         "enviar";
-        justify-content: center;
     }
 
     .boton{
