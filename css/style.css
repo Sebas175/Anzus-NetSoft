@@ -674,6 +674,10 @@ footer .redes i:hover{
         color: #32CFEF;
     }
 
+    .carcel{
+        margin: 30px;
+    }
+
     .formulario{
         display: grid;
         grid-template: repeat(6, auto) / repeat(1,auto);
