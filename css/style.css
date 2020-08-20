@@ -1,0 +1,837 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: justify;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+section h1{
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 40px;
+}
+
+section h1:not(.titulo-encabezado){
+    text-decoration: underline #32CFEF;
+}
+
+section p{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*#region Menú*/
+header{
+    color: #FFF;
+    width: 100%;
+}
+
+header .logo{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    background: #000;
+    display: grid;
+    grid-template: auto / repeat(2, 1fr);
+    align-items: center;
+    grid-row-gap: 10px;
+    min-height: 50px;
+    padding: 5px;
+}
+
+.logo h2 a{
+    margin-left: 10px;
+    font-family: 'Russo One', sans-serif;
+}
+
+header .logo nav{
+    grid-column: 1/3;
+}
+
+header nav{
+    text-align: center;
+    margin: 0;
+}
+
+header label{
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    justify-self: end;
+}
+
+header label:hover{
+    cursor: pointer;
+    color: #32CFEF;
+}
+
+header ul{
+    display: none;
+}
+
+header input:checked ~ nav ul{
+    display: block;
+}
+
+/*#region Cambiar icono del menu*/
+label[for="menu"] i.fas.fa-times{
+    display: none;
+}
+
+header input:checked ~ label[for="menu"] i.fa.fa-bars{
+    display: none;
+}
+
+header input:checked ~ label[for="menu"] i.fas.fa-times{
+    display: block;
+}
+/*#endregion*/
+
+input{
+    display: none;
+}
+
+i.fa.fa-bars{
+    font-size: 30px;
+}
+
+i.fas.fa-times{
+    font-size: 30px;
+}
+
+header li{
+    list-style: none;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header a{
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+header li a:hover{
+    color: #32CFEF;
+    font-weight: bold;
+}
+
+.img-responsive{
+    background: fixed url('../img/inicio.jpg') center no-repeat;
+    background-size: cover;
+    height: 660px;
+    width: 100%;
+}
+
+.img-responsive h1{
+    position: absolute;
+    top:  50%;
+    right: 20%;
+    color: #000;
+    font-size: 50px;   
+
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 5s steps(22, end) infinite,
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 60% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+
+/*#endregion*/
+
+/*#region Servicios*/
+#servicios{
+    margin: 30px;
+}
+
+.services{
+    display: grid;
+    grid-template: repeat(6, auto) / auto;
+    grid-template-areas: 
+    "bd"
+    "bgd"
+    "cs"
+    "dm"
+    "ds"
+    "md";
+}
+
+/*#region Grid-Area*/
+#servicios h2{
+    grid-area: subtitulo;
+}
+
+.bd{
+    grid-area: bd;
+}
+
+.bgd{
+    grid-area: bgd;
+}
+
+.cs{
+    grid-area: cs;
+}
+
+.dm{
+    grid-area: dm;
+}
+
+.ds{
+    grid-area: ds;
+}
+
+.md{
+    grid-area: md;
+}
+/*#endregion*/
+
+.services p{
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contenedor_tarjeta{
+    margin: 20px;
+}
+
+.contenedor_tarjeta:hover figure {
+	transform: perspective(600px) rotateY(180deg);
+	-webkit-box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+	box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+}
+
+figure {
+	width: 100%;
+	height: 350px;
+	margin:0;
+	position: relative;
+	transition: all ease .5s;
+	transform-style: preserve-3d;
+	transform: perspective(600px) rotateY(0deg);
+}
+
+figure .frontal,
+figure .trasera {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	transition: all ease .5s;
+}
+
+figure .frontal {
+	display: block;
+	background: #000;
+}
+
+figure .trasera {
+	position: absolute;
+	top: 0;
+	padding: 20px;
+	color: #000;
+	transform: perspective(600px) rotateY(180deg);
+	backface-visibility: hidden;
+	overflow: auto;
+}
+
+/*#region Fondo de Tarjeta Trasera*/
+
+.contenedor_tarjeta:nth-child(1) figure .trasera{
+	background: rgba(151,202,231,0.7);
+    background: -moz-linear-gradient(top, rgba(151,202,231,0.7) 0%, rgba(27,39,56,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(151,202,231,0.7)), color-stop(100%, rgba(27,39,56,0.8)));
+    background: -webkit-linear-gradient(top, rgba(151,202,231,0.7) 0%, rgba(27,39,56,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(151,202,231,0.7) 0%, rgba(27,39,56,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(151,202,231,0.7) 0%, rgba(27,39,56,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(151,202,231,0.7) 0%, rgba(27,39,56,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97cae7', endColorstr='#1b2738', GradientType=0 );
+}
+
+.contenedor_tarjeta:nth-child(2) figure .trasera{
+    background: rgba(38,158,210,0.65);
+    background: -moz-linear-gradient(top, rgba(38,158,210,0.65) 0%, rgba(29,45,55,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(38,158,210,0.65)), color-stop(100%, rgba(29,45,55,0.7)));
+    background: -webkit-linear-gradient(top, rgba(38,158,210,0.65) 0%, rgba(29,45,55,0.7) 100%);
+    background: -o-linear-gradient(top, rgba(38,158,210,0.65) 0%, rgba(29,45,55,0.7) 100%);
+    background: -ms-linear-gradient(top, rgba(38,158,210,0.65) 0%, rgba(29,45,55,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(38,158,210,0.65) 0%, rgba(29,45,55,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#269ed2', endColorstr='#1d2d37', GradientType=0 );
+}
+
+.contenedor_tarjeta:nth-child(3) figure .trasera{
+    background: rgba(214,194,214,0.8);
+    background: -moz-linear-gradient(top, rgba(214,194,214,0.8) 0%, rgba(242,246,249,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(214,194,214,0.8)), color-stop(100%, rgba(242,246,249,0.7)));
+    background: -webkit-linear-gradient(top, rgba(214,194,214,0.8) 0%, rgba(242,246,249,0.7) 100%);
+    background: -o-linear-gradient(top, rgba(214,194,214,0.8) 0%, rgba(242,246,249,0.7) 100%);
+    background: -ms-linear-gradient(top, rgba(214,194,214,0.8) 0%, rgba(242,246,249,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(214,194,214,0.8) 0%, rgba(242,246,249,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6c2d6', endColorstr='#f2f6f9', GradientType=0 );
+}
+
+.contenedor_tarjeta:nth-child(4) figure .trasera{
+    background: rgba(70,190,213,0.8);
+    background: -moz-linear-gradient(top, rgba(70,190,213,0.8) 0%, rgba(226,224,217,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(70,190,213,0.8)), color-stop(100%, rgba(226,224,217,0.7)));
+    background: -webkit-linear-gradient(top, rgba(70,190,213,0.8) 0%, rgba(226,224,217,0.7) 100%);
+    background: -o-linear-gradient(top, rgba(70,190,213,0.8) 0%, rgba(226,224,217,0.7) 100%);
+    background: -ms-linear-gradient(top, rgba(70,190,213,0.8) 0%, rgba(226,224,217,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(70,190,213,0.8) 0%, rgba(226,224,217,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46bed5', endColorstr='#e2e0d9', GradientType=0 );
+}
+
+.contenedor_tarjeta:nth-child(5) figure .trasera{
+    background: rgba(10,124,168,0.7);
+    background: -moz-linear-gradient(top, rgba(10,124,168,0.7) 0%, rgba(192,250,250,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(10,124,168,0.7)), color-stop(100%, rgba(192,250,250,0.7)));
+    background: -webkit-linear-gradient(top, rgba(10,124,168,0.7) 0%, rgba(192,250,250,0.7) 100%);
+    background: -o-linear-gradient(top, rgba(10,124,168,0.7) 0%, rgba(192,250,250,0.7) 100%);
+    background: -ms-linear-gradient(top, rgba(10,124,168,0.7) 0%, rgba(192,250,250,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(10,124,168,0.7) 0%, rgba(192,250,250,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a7ca8', endColorstr='#c0fafa', GradientType=0 );
+}
+
+.contenedor_tarjeta:nth-child(6) figure .trasera{
+    background: rgba(51,208,178,0.7);
+    background: -moz-linear-gradient(top, rgba(51,208,178,0.7) 0%, rgba(9,94,125,0.7) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,208,178,0.7)), color-stop(100%, rgba(9,94,125,0.7)));
+    background: -webkit-linear-gradient(top, rgba(51,208,178,0.7) 0%, rgba(9,94,125,0.7) 100%);
+    background: -o-linear-gradient(top, rgba(51,208,178,0.7) 0%, rgba(9,94,125,0.7) 100%);
+    background: -ms-linear-gradient(top, rgba(51,208,178,0.7) 0%, rgba(9,94,125,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(51,208,178,0.7) 0%, rgba(9,94,125,0.7) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33d0b2', endColorstr='#095e7d', GradientType=0 );
+}
+
+/*#endregion*/
+
+figure .trasera .titulo {
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+}
+
+figure .trasera hr {
+	height: 2px;
+	background: #000;
+	border: none;
+	margin-bottom: 20px;
+	opacity: .5;
+}
+
+figure .trasera p {
+	font-family: 'Open Sans', sans-serif;
+	line-height: 22px;
+	font-size: 14px;
+}
+
+/*#endregion*/
+
+/*#region Nosotros*/
+.fondo{
+    display: flex;
+    justify-content: center;
+
+    background: rgba(37,38,43,0.7);
+    background: -moz-linear-gradient(top, rgba(37,38,43,0.7) 0%, rgba(175,152,146,0.8) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(37,38,43,0.7)), color-stop(100%, rgba(175,152,146,0.8)));
+    background: -webkit-linear-gradient(top, rgba(37,38,43,0.7) 0%, rgba(175,152,146,0.8) 100%);
+    background: -o-linear-gradient(top, rgba(37,38,43,0.7) 0%, rgba(175,152,146,0.8) 100%);
+    background: -ms-linear-gradient(top, rgba(37,38,43,0.7) 0%, rgba(175,152,146,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(37,38,43,0.7) 0%, rgba(175,152,146,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25262b', endColorstr='#af9892', GradientType=0 );
+}
+
+.fondo h1{
+    margin-top: 20px;
+    position: absolute;
+    color: #FFF;
+}
+
+.fondo .parrafo{
+    display: flex;
+    align-items: center;
+}
+
+.fondo .parrafo p{
+    position: absolute;
+    margin: 0 20px;
+    font-size: 25px;
+    color: #FFF;
+}
+
+.fondo img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+/*#endregion*/
+
+/*#region Contactos*/
+#contactenos h1{
+margin-top: 30px;
+}
+
+#contactenos input{
+    display: block;
+}
+
+.formulario{
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+ /*   grid-template-areas: 
+    "lnombre lempresa"
+    "nombre empresa"
+    "lcorreo ltel"
+    "correo tel"
+    "lasunto lasunto"
+    "asunto asunto";*/
+    width: 80%;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+.formulario label{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+}
+
+.group input[type="text"], input[type="email"]{
+    border-radius: 5px;
+    width: 100%;
+    height: 38px;
+    font-size: 30px;
+    background: rgba(50,207,239, 0.5);
+    border: 0;
+    padding-left: 10px;
+}
+
+textarea{
+    border-radius: 5px;
+    font-size: 19px;
+    resize: none;
+    background: rgba(50,207,239, 0.5);
+    border: 0;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 30px;
+}
+
+.boton{
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+
+.enviar{
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 0;
+    background: rgba(0,0,0);
+    color: #FFF;
+    cursor: pointer;
+}
+ 
+.asunto{
+    grid-column: 1/3;
+}
+
+.maps{
+    width: 100%;
+    margin: 0;
+}
+
+.maps iframe{
+    width: 100%;
+}
+
+/*#region Grid-area*/
+/*
+.nombre{
+    grid-area: nombre;
+}
+.correo{
+    grid-area: correo;
+}
+.empresa{
+    grid-area: empresa;
+}
+.tel{
+    grid-area: tel;
+}
+.asunto{
+    grid-area: asunto;
+}
+.lnombre{
+    grid-area: lnombre;
+}
+.lcorreo{
+    grid-area: lcorreo;
+}
+.lempresa{
+    grid-area: lempresa;
+}
+.ltel{
+    grid-area: ltel;
+}
+.lasunto{
+    grid-area: lasunto;
+}*/
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region footer*/
+footer{
+    background: #000;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    text-align: center;
+    padding: 10px 0;
+    margin:0;
+}
+
+footer i{
+    color: #32CFEF;
+}
+
+footer i{
+    font-size: 50px;
+}
+
+footer .footer-datos{
+    font-size: 50px;
+    width: 100%;
+    display:grid;
+    grid-template: auto / repeat(3, auto);
+    grid-template-areas: 
+    "ubicacion correo cel";
+    margin-top: 40px;
+    justify-items: center;
+}
+
+.footer-ubicacion{
+    grid-area: ubicacion;
+    text-align: center;
+}
+
+.footer-datos p{
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.footer-datos p a{
+    color: #FFF;
+}
+
+.footer-datos p a:hover{
+    color: #32CFEF;
+}
+
+.footer-correo{
+    grid-area: correo;
+    text-align: center;
+}
+
+.footer-cel{
+    grid-area: cel;
+    text-align: center;
+}
+
+footer p{
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer h2{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer .redes{
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer .redes i{
+    margin: 20px 25px;
+}
+
+footer .redes i:hover{
+    cursor: pointer;
+}
+/*#endregion*/
+
+/*#region Responsive*/
+
+@media (min-width: 795px){
+    
+    header .logo{
+        grid-template-columns: 1fr 1fr 2fr;
+        align-items: center;
+    }
+
+    header .logo nav{
+        justify-self: end;
+        grid-column: 3 / 5;
+    }
+
+    header label{
+        display: none;
+    }
+
+    header nav li{
+        display: inline-block;
+        padding: 10px;
+    }
+
+    header ul{
+        display: block;
+    }
+
+}
+
+@media(max-width: 795px){
+    .fondo .parrafo p{
+        font-size: 18px;
+    }
+
+    header li:not(.last-li){
+        border-bottom: 1px solid rgba(0,0,0, 0.5);
+    }
+
+    .img-responsive{
+        height: 550px;
+    }
+
+    .img-responsive h1{
+        position: absolute;
+        top:  40%;
+        right: 30%;
+        color: #000;
+        font-size: 17px;
+
+        animation: 
+        typing 5s steps(22, end) infinite,
+        blink-caret .5s step-end infinite;
+    }
+
+    header .logo{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0,0,0, 0.8);
+    }
+
+
+    header .logo nav li a{
+        color: #32CFEF;
+    }
+
+    .formulario{
+        display: grid;
+        grid-template: repeat(6, auto) / repeat(1,auto);
+        grid-template-areas: 
+        "nombre" 
+        "empresa"
+        "correo" 
+        "tel"
+        "asunto"
+        "enviar";
+        justify-content: center;
+    }
+
+    .boton{
+        display: flex;
+        justify-items: center;
+    }
+
+
+
+
+/*#region Grid-area*/
+
+.nombre{
+    grid-area: nombre;
+}
+.correo{
+    grid-area: correo;
+}
+.empresa{
+    grid-area: empresa;
+}
+.tel{
+    grid-area: tel;
+}
+.asunto{
+    grid-area: asunto;
+}
+.lnombre{
+    grid-area: lnombre;
+}
+.lcorreo{
+    grid-area: lcorreo;
+}
+.lempresa{
+    grid-area: lempresa;
+}
+.ltel{
+    grid-area: ltel;
+}
+.lasunto{
+    grid-area: lasunto;
+}
+.boton{
+    grid-area: enviar;
+}
+/*#endregion*/
+
+/*#endregion*/
+
+    footer .footer-datos{
+        display:grid;
+        grid-template: auto auto auto / repeat(1, auto);
+        grid-template-areas: 
+        "ubicacion"
+        "correo" 
+        "cel";
+    }
+
+    .fo{
+        margin-bottom: 40px;
+    }
+}
+
+@media(min-width: 796px){
+    header .logo{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+    }
+
+    header .logo nav{
+        justify-self: end;
+        grid-column: 2 / 5;
+    }
+
+    .img-responsive h1{
+        position: absolute;
+        top:  40%;
+        right: 30%;
+        color: #000;
+        font-size: 25px;
+
+        animation: 
+        typing 5s steps(22, end) infinite,
+        blink-caret .5s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 50% }
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange }
+      }
+
+    .services{
+        display: grid;
+        grid-template: repeat(3, auto) / repeat(2, auto);
+        grid-template-areas:
+        "bd bgd"
+        "cs dm"
+        "ds md";
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .services{
+        margin-right: 30px;
+        margin-left: 30px;
+        display: grid;
+        grid-template: repeat(2, auto) / repeat(3, auto);
+        grid-template-areas:
+        "bd bgd cs"
+        "dm ds md";
+    }
+
+    .img-responsive h1{
+        position: absolute;
+        top:  50%;
+        right: 20%;
+        color: #000;
+        font-size: 50px;   
+    
+        font-family: monospace;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid orange; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+          typing 5s steps(22, end) infinite,
+          blink-caret .5s step-end infinite;
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 70% }
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: orange }
+      }
+      
+}
+/*#endregion*/
